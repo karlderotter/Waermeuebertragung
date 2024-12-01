@@ -54,13 +54,13 @@ def Randbedingung (T_t0R:np.array, numXR:int, numYR:int, KanteXR:int, KanteY_Eas
     T_t0R[-1                  , 1               : numY - 1       ] = T0
 
     #Dirichelt Bedingung an allen anderen Ränder
-    T_t0R[KanteXR : numXR - 1 , 0] = T_t0R[KanteXR : numXR - 1 , 1]
-    T_t0R[KanteXR - 1, 1 : KanteY_WestR - 1] = T_t0R[KanteXR, 1 : KanteY_WestR - 1]
-    T_t0R[1 : KanteXR - 1, KanteY_WestR - 1 ] = T_t0R[1 : KanteXR - 1, KanteY_WestR]
-    T_t0R[0 , KanteY_WestR : KanteY_EastR] = T_t0R[1 , KanteY_WestR : KanteY_EastR]
-    T_t0R[1 : KanteXR - 1, KanteY_EastR] = T_t0R[1 : KanteXR - 1, KanteY_EastR - 1]
-    T_t0R[KanteXR - 1, KanteY_EastR + 1 : numYR - 1] = T_t0R[KanteXR , KanteY_EastR + 1 : numYR - 1]
-    T_t0R[KanteXR : numXR - 1 , numYR - 1] = T_t0R[KanteXR : numXR - 1 , numYR - 2]
+    T_t0R[KanteXR : numXR - 1 , 1] = T_t0R[KanteXR : numXR - 1 , 0]
+    T_t0R[KanteXR, 1 : KanteY_WestR - 1] = T_t0R[KanteXR - 1, 1 : KanteY_WestR - 1]
+    T_t0R[1 : KanteXR - 1, KanteY_WestR] = T_t0R[1 : KanteXR - 1, KanteY_WestR - 1]
+    T_t0R[1 , KanteY_WestR : KanteY_EastR] = T_t0R[0 , KanteY_WestR : KanteY_EastR]
+    T_t0R[1 : KanteXR - 1, KanteY_EastR] = T_t0R[1 : KanteXR - 1, KanteY_EastR + 1]
+    T_t0R[KanteXR, KanteY_EastR + 1 : numYR - 1] = T_t0R[KanteXR - 1 , KanteY_EastR + 1 : numYR - 1]
+    T_t0R[KanteXR : numXR - 1 , numYR - 1] = T_t0R[KanteXR : numXR - 1 , numYR]
 
     #Eckpunkte
     T_t0R[KanteXR - 1 , KanteY_WestR - 1] = T_t0R[KanteXR , KanteY_WestR]
